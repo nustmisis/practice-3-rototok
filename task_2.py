@@ -22,5 +22,22 @@ import re
 
 def get_plate_type(plate):
     # ваше решение:
+    plate = plate.lower()
+    type_1a = r'[авекмнорстух][0-9]{3}[авекмнорстух]{2} [0-9]{2}'
+    type_1b = r'[авекмнорстух]{2}[0-9]{3} [0-9]{2}'
+    type_2 = r'[авекмнорстух]{2}[0-9]{4} [0-9]{2}'
+    type_3 = r'[0-9]{4}[авекмнорстух]{2} [0-9]{2}'
 
+    if(re.match(type_1a, plate)):
+        return "1А"
+    
+    elif(re.match(type_1b, plate)):
+        return "1Б"
+    
+    elif(re.match(type_2, plate)):
+        return "2"
+    
+    elif(re.match(type_3, plate)):
+        return "3"
+    
     return "Fail!"

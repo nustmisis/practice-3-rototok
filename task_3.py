@@ -33,5 +33,15 @@ import re
 
 def format_phone_number(text):
     # ваше решение:
-
-    return "Fail!"
+    text = text.replace('+7 ','')
+    text = text.replace('8(','')
+    text = text.replace(' ','')
+    text = text.replace(')','')
+    text = text.replace('(','')
+    text = text.replace('-','')
+    print(text)
+    if(len(text) == 10 ):
+        return f"+7 {text[0:3]} {text[3:6]}-{text[6:8]}-{text[8:]}"    
+        
+    else:
+        return "Fail!"
